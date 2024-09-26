@@ -1,0 +1,206 @@
+1) Bug Collector
+
+# set values
+days = 1 
+total_bugs = 0
+
+# make loop
+while days < 6:
+    user_input = int(input(f"How many bugs were collected on day {days}? ")) # get user input
+    total_bugs += user_input # add user input to total bugs
+    days += 1 # add day count when user inputs an integer
+    if days == 6:
+        print(f"You colleted {total_bugs} bugs in total.") # displays total
+
+# ------------------------------------------------------------------------------------
+
+2) Calories Burned
+
+# set values
+minutes = [10, 15, 20, 25, 30]
+calories_per_min = 4.2
+
+for minute in minutes: # use for loop when using multiple values from the same variable
+    calories_burned = minute * calories_per_min # equation
+    print(f"In {minute} minutes, you burned a total of {calories_burned} calories.") # displays total
+
+
+# ------------------------------------------------------------------------------------
+
+3) Budget Analysis
+
+# set values
+budget = int(input("How much money did you want to budget for the month? "))
+total_spent = 0
+difference = 0
+
+# make loop
+while True:
+    groceries = int(input("How much did you spend on Groceries? ")) # asks user for values
+    bills = int(input("How much did you spend on Bills/Rent? "))
+    wants = int(input("How much did you spend on non-necessities? "))
+    total_spent = groceries + bills + wants # add all values together
+    difference = total_spent - budget # calculates how much user is over or under budget
+    if difference == 0: # if user spent the same amount as their budget, it won't show a nunmber
+        print("You budgeted perfectly!")
+    elif difference < 0: # if user spent less than budget, it prints that
+        lost_money = difference * -1
+        print(f"You were {lost_money} dollars under your budget.")
+    else: # if user was spent more than budget, it prints the amount
+        print(f"You were {difference} dollars over your budget") 
+
+# ------------------------------------------------------------------------------------
+
+
+4) Distance Traveled
+
+# ask user for values
+speed = int(input("What is the speed of the vehicle in mph? "))
+hours = int(input("How many hours has it traveled? "))
+
+print("Hour\tDistance Traveled") # title of chart
+print("---------------------------") # seperates values and title
+
+for hour in range(1, hours + 1): # loop
+    distance = speed * hour # equation
+    print(f"{hour}\t\t{distance}") # prints distance for every hour
+    
+# ------------------------------------------------------------------------------------
+
+5) Average Rainfall
+
+# ask for input
+years = int(input("Enter the number of years: "))
+
+# set values
+total_rainfall = 0
+total_months = years * 12
+
+# loop for each year
+for year in range(1, years + 1):
+    print(f"\nYear {year}:")
+    
+    # loop for each month
+    for month in range(1, 13):
+        # rainfall for the month
+        rainfall = float(input(f"  Enter the rainfall for month {month}: "))
+        total_rainfall += rainfall  # total rainfall
+
+# equation to get avg rainfall
+average_rainfall = total_rainfall / total_months if total_months > 0 else 0
+
+# displays results
+print(f"\nTotal months: {total_months}")
+print(f"Total inches of rainfall: {total_rainfall:.2f}")
+print(f"Average rainfall per month: {average_rainfall:.2f}")
+
+# ------------------------------------------------------------------------------------
+
+6) Celsius to Fahrenheit Table
+
+# title
+print(f"{'Celsius (°C)':<15} {'Fahrenheit (°F)':<15}")
+print("-" * 30)
+
+# loop 0 to 20
+for celsius in range(0, 21):
+    # equation to convert c to f
+    fahrenheit = (9/5) * celsius + 32
+    # display results
+    print(f"{celsius:<15} {fahrenheit:<15.2f}")
+
+# ------------------------------------------------------------------------------------
+
+7) Pennis for Pay
+
+# set values
+days = int(input("Enter the number of days: "))
+total_pay = 0.0
+
+# title
+print(f"{'Day':<10} {'Salary (in $)':<15}")
+print("-" * 25)
+
+# loop for each day
+for day in range(1, days + 1):
+    salary = (2 ** (day - 1)) / 100  # conversion
+    total_pay += salary # add total pay to salary
+    print(f"{day:<10} ${salary:<14.2f}") # display result
+
+# display total
+print(f"\nTotal pay after {days} days: ${total_pay:.2f}")
+
+# ------------------------------------------------------------------------------------
+
+8) Sum of Numbers
+
+# set value
+total_sum = 0
+
+# loop
+while True:
+    number = float(input("Enter a positive number (negative number to end): ")) # ask user for input
+    if number < 0: # check if number is negative
+        break  # exits loop
+    total_sum += number # add number to sum
+
+# display total
+print(f"The total sum of the positive numbers entered is: {total_sum}")
+
+# ------------------------------------------------------------------------------------
+
+9) Ocean Levels
+
+# set value
+rise_per_year = 1.6
+
+# loop
+for year in range(1, 26):
+    total_rise = year * rise_per_year # calculate total rise
+    # display results
+    print(f"Year {year}: {total_rise:.2f} millimeters")
+
+# ------------------------------------------------------------------------------------
+
+10) Tuition Increase
+
+# set values
+tuition = 8000
+increase_rate = 0.03
+
+# loop
+for year in range(1, 6):
+    # equation and adds to tuition
+    tuition += tuition * increase_rate
+    # display results
+    print(f"Year {year}: ${tuition:.2f}")
+
+# ------------------------------------------------------------------------------------
+
+11) Calculating the Factorial of a Number
+
+# ask use for input
+n = int(input("Enter a non-negative integer: "))
+
+# set value
+factorial = 1
+
+# loop
+for i in range(1, n + 1):
+    factorial *= i
+
+# display result
+print(f"The factorial of {n} is {factorial}")
+
+# ------------------------------------------------------------------------------------
+
+# get inputs
+starting_population = float(input("Starting number of organisms: "))
+daily_increase_percent = float(input("Average daily increase (%): "))
+days = int(input("Number of days to multiply: "))
+
+# loop
+for day in range(1, days + 1):
+    print(f"Day {day}: {starting_population:.2f}")
+    # increase population by percent
+    starting_population += starting_population * (daily_increase_percent / 100)
